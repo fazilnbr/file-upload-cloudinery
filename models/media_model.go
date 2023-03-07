@@ -9,8 +9,3 @@ type File struct {
 type Url struct {
 	Url string `json:"url,omitempty" validate:"required"`
 }
-type response struct {
-	StatusCode int
-	Message string
-	Data string
-}
