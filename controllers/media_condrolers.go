@@ -54,6 +54,12 @@ func FileUpload() gin.HandlerFunc {
 	}
 }
 
+// @Summary upload image from users remote dierectory
+// @ID upload-remote-file
+// @Produce json
+// @Success 200 dtos.MdiaDto upload
+// @Failure 500 dtos.MdiaDto message
+// @Router /remote [post]
 func RemoteUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var url models.Url
