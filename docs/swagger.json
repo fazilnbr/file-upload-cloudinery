@@ -1,0 +1,84 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server file upload server. You can visit the GitHub repository at https://github.com/fazilnbr/file-upload-cloudinery",
+        "title": "Go + Gin File Upload API",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "fazilkp2000@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:6000",
+    "basePath": "/",
+    "paths": {
+        "/file": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "upload image from users local dierectory",
+                "operationId": "upload-local-file",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.MediaDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.MediaDto"
+                        }
+                    }
+                }
+            }
+        },
+        "/remote": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "upload image from users remote dierectory",
+                "operationId": "upload-remote-file",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.MediaDto"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/dtos.MediaDto"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dtos.MediaDto": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "message": {
+                    "type": "string"
+                },
+                "statusCode": {
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

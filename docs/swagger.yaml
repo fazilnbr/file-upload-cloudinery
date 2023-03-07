@@ -1,0 +1,57 @@
+basePath: /
+definitions:
+  dtos.MediaDto:
+    properties:
+      data:
+        additionalProperties: true
+        type: object
+      message:
+        type: string
+      statusCode:
+        type: integer
+    type: object
+host: localhost:6000
+info:
+  contact:
+    email: fazilkp2000@gmail.com
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server file upload server. You can visit the GitHub
+    repository at https://github.com/fazilnbr/file-upload-cloudinery
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  title: Go + Gin File Upload API
+  version: "1.0"
+paths:
+  /file:
+    post:
+      operationId: upload-local-file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.MediaDto'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dtos.MediaDto'
+      summary: upload image from users local dierectory
+  /remote:
+    post:
+      operationId: upload-remote-file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dtos.MediaDto'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dtos.MediaDto'
+      summary: upload image from users remote dierectory
+swagger: "2.0"
