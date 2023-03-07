@@ -30,6 +30,15 @@ const docTemplate = `{
                 ],
                 "summary": "upload image from users local dierectory",
                 "operationId": "upload-local-file",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "image",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -53,6 +62,17 @@ const docTemplate = `{
                 ],
                 "summary": "upload image from users remote dierectory",
                 "operationId": "upload-remote-file",
+                "parameters": [
+                    {
+                        "description": "url of the image",
+                        "name": "url",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Url"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -85,6 +105,17 @@ const docTemplate = `{
                     "type": "integer"
                 }
             }
+        },
+        "models.Url": {
+            "type": "object",
+            "required": [
+                "url"
+            ],
+            "properties": {
+                "url": {
+                    "type": "string"
+                }
+            }
         }
     }
 }`
@@ -92,7 +123,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "localhost:6000",
+	Host:             "localhost:8000",
 	BasePath:         "/",
 	Schemes:          []string{},
 	Title:            "Go + Gin File Upload API",

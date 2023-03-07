@@ -2,6 +2,11 @@ package main
 
 import (
 	"file-upload-cloudinary/controllers" //add this
+	_ "file-upload-cloudinary/docs"
+	_ "file-upload-cloudinary/dtos"
+
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,16 +22,18 @@ import (
 // @license.name MIT
 // @license.url https://opensource.org/licenses/MIT
 
-// @host localhost:6000
+// @host localhost:8000
 // @BasePath /
 // @query.collection.format multi
 
 func main() {
 	router := gin.Default()
+	// docs route
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	//add
+	// upload route
 	router.POST("/file", controllers.FileUpload())
 	router.POST("/remote", controllers.RemoteUpload())
 
-	router.Run("localhost:6000")
+	router.Run("localhost:8000")
 }
