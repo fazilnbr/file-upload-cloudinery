@@ -13,8 +13,8 @@ import (
 // @Summary upload image from users local dierectory
 // @ID upload-local-file
 // @Produce json
-// @Success 200 dtos.MdiaDto upload
-// @Failure 500 dtos.MdiaDto message
+// @Success 200 {object} dtos.MediaDto{} 
+// @Failure 500 {object} dtos.MediaDto{} 
 // @Router /file [post]
 func FileUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
@@ -57,8 +57,8 @@ func FileUpload() gin.HandlerFunc {
 // @Summary upload image from users remote dierectory
 // @ID upload-remote-file
 // @Produce json
-// @Success 200 dtos.MdiaDto upload
-// @Failure 500 dtos.MdiaDto message
+// @Success 200 {object} dtos.MediaDto{}
+// @Failure 500 {object} dtos.MediaDto{}
 // @Router /remote [post]
 func RemoteUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
