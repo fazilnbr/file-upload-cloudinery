@@ -10,6 +10,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary upload image from users local dierectory
+// @ID upload-local-file
+// @Produce json
+// @Param file formData file true "image"
+// @Success 200 {object} dtos.MediaDto{}
+// @Failure 500 {object} dtos.MediaDto{}
+// @Router /file [post]
 func FileUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		//upload
@@ -48,6 +55,13 @@ func FileUpload() gin.HandlerFunc {
 	}
 }
 
+// @Summary upload image from users remote dierectory
+// @ID upload-remote-file
+// @Produce json
+// @Param url body models.Url{} true "url of the image"
+// @Success 200 {object} dtos.MediaDto{}
+// @Failure 500 {object} dtos.MediaDto{}
+// @Router /remote [post]
 func RemoteUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var url models.Url
