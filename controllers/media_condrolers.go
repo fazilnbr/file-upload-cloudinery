@@ -10,6 +10,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary upload image from users local dierectory
+// @ID upload-local-file
+// @Produce json
+// @Success 200 dtos.MdiaDto upload
+// @Failure 500 dtos.MdiaDto message
+// @Router /file [post]
 func FileUpload() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		//upload
