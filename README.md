@@ -6,4 +6,23 @@ This repository shows the source code for building a robust media upload using t
 
 This sorce code condaines API Documentation with Swagger
 
-## Using `go-gin` project
+# Using `go-gin Swagger` project
+
+To use `file-upload-cloudinery` project, follow these steps:
+
+```bash
+# Navigate into the project
+cd ./file-upload-cloudinery
+
+# Install dependencies
+go mod tidy
+
+# Generate swagger for api documentation
+swag init
+
+# Run the project in Development Mode
+go run main.go
+```
+
+For API Documentation And Testing- Swagger
+# `http://localhost:8000/swagger/index.html`
